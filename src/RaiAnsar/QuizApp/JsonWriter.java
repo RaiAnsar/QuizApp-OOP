@@ -1,4 +1,4 @@
 package RaiAnsar.QuizApp;
 
-public class QuizGUI {
+public class JsonWriter {
 }
