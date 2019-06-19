@@ -6,25 +6,23 @@ import java.awt.*;
 public class MainFrame extends JFrame {
     private JButton clickMe;
     private JPanel text;
-//    private JPanel statusBar;
-//    private JLabel appStatus;
-//    private JLabel currentPage;
-//    private JLabel correctQs, incorrectQs;
 
 
     public MainFrame(){
-        super("Quizzat");
+        super("Quizzat | A Fun Quiz Application");
         Initializer();
         setVisible(true);
     }
 
     private void Initializer() {
+
         AppLabel appLabel = new AppLabel();
         QuizPanel quizPanel = new QuizPanel();
         ControlPanel controlPanel = new ControlPanel();
         InfoPanel infoPanel = new InfoPanel();
         StatusBar statusBar = new StatusBar();
         LoginPanel loginPanel = new LoginPanel();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1369, 800);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);

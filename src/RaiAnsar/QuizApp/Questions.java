@@ -2,14 +2,25 @@ package RaiAnsar.QuizApp;
 
 public class Questions {
     private String question;
+    private String correctAns;
     private String ans1, ans2, ans3, ans4;
 
-    public Questions() {
-        this.question = "In \"Need for Speed: Porsche Unleashed\", the player can only drive cars manufactured by Porsche.";
-        this.ans1 = "Yes";
-        this.ans2 = "Yes, of course";
-        this.ans3 = "Yes but in dark Gray";
-        this.ans4 = "Yes, Love it";
+    ReadJson JSONData = new ReadJson();
+
+
+    public Questions(int index) {
+        JSONData.run();
+        System.out.println(JSONData.getCategory(index));
+        this.question = JSONData.getQuestions(index);
+        this.correctAns = JSONData.getCorrectAnswer(index);
+        String answers[] = JSONData.getAnswers(index);
+        System.out.println(this.question);
+        System.out.println(answers[1]);
+        System.out.println(answers[2]);
+        this.ans1 = answers[0];
+        this.ans2 = answers[1];
+        this.ans3 = answers[2];
+        this.ans4 = answers[3];
     }
     public Questions(String question, String ans1, String ans2, String ans3, String ans4) {
         this.question = question;
@@ -17,6 +28,10 @@ public class Questions {
         this.ans2 = ans2;
         this.ans3 = ans3;
         this.ans4 = ans4;
+    }
+
+    public void endQuiz(){
+
     }
 
     public String getQuestion() {

@@ -3,8 +3,10 @@ package RaiAnsar.QuizApp;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class QuizPanel extends JPanel {
+public class QuizPanel extends JPanel implements ActionListener {
     //JPanel centerPanel;
     JPanel questionPanel;
     JLabel question;
@@ -13,7 +15,6 @@ public class QuizPanel extends JPanel {
     JPanel answerGrid;
     ButtonGroup ansButtons;
     JPanel answesPanel;
-    JButton submit;
 
     JButton nextQuestion;
     JButton prevQuestion;
@@ -38,7 +39,8 @@ public class QuizPanel extends JPanel {
 //        questionPanel.setMaximumSize(new Dimension(600, 300));
         GridBagConstraints qC = new GridBagConstraints();
 
-        Questions questions = new Questions(); // for now only
+        Questions questions = new Questions(1); // for now only
+        System.out.println("another Null" + questions.getQuestion());
         question =new JLabel();
         questionExtended =new JLabel();
         question.setFont(new Font("Dialog", Font.BOLD, 18));
@@ -64,6 +66,9 @@ public class QuizPanel extends JPanel {
         nextQuestion = new JButton("\u25C4");
         prevQuestion = new JButton( "\u25BA");
         finishQuiz = new JButton(" Submit ");
+        nextQuestion.addActionListener(this);
+        prevQuestion.addActionListener(this);
+        finishQuiz.addActionListener(this);
         {
             //adding in Question Panel
             qC.gridx = 0;
@@ -131,6 +136,11 @@ public class QuizPanel extends JPanel {
         }
 
 
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 }
